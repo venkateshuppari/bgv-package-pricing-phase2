@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>BGV Package Pricing</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>BGV Package Pricing</h1>
+    <p class="subtitle">Select checks to build a background verification package quote.</p>
+    <div class="toolbox" style="display:flex;gap:8px;margin-top:8px;">
+      <button id="reset-btn" type="button" title="Utility: resets sample data, not part of the app under test" style="padding:4px 10px;border:1px solid #ccc;border-radius:4px;background:#fff;cursor:pointer;">↺ Reset data</button>
+      <a id="spec-link" href="/spec" target="_blank" title="Utility: opens the spec, not part of the app under test" style="padding:4px 10px;border:1px solid #ccc;border-radius:4px;background:#fff;text-decoration:none;color:#1a1a1a;">📋 Spec</a>
+      <a class="header-btn" href="/openapi.json" target="_blank" title="Utility: OpenAPI collection, not part of the app under test" style="padding:4px 10px;border:1px solid #ccc;border-radius:4px;background:#fff;text-decoration:none;color:#1a1a1a;">📥 API collection</a>
+    </div>
+  </header>
+
+  <main id="app-section">
+    <section class="panel">
+      <h2>Available Checks</h2>
+      <div id="checks-list">Loading checks…</div>
+
+      <div class="field">
+        <label for="discount-input">Discount %</label>
+        <input type="number" id="discount-input" placeholder="0" />
+        <div id="discount-error" class="message error"></div>
+      </div>
+
+      <div class="live-preview">
+        Live subtotal (before GST/discount): <span id="live-subtotal">₹0.00</span>
+      </div>
+
+      <button id="quote-btn">Get Quote</button>
+      <div id="message" class="message"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Quote</h2>
+      <table class="quote-table">
+        <tr><td>Subtotal</td><td id="result-subtotal">-</td></tr>
+        <tr><td>Discount</td><td id="result-discount">-</td></tr>
+        <tr><td>GST (18%)</td><td id="result-gst">-</td></tr>
+        <tr class="total-row"><td>Total</td><td id="result-total">-</td></tr>
+      </table>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+  <script>window.SV_APP_ID='04';window.SV_SCOREBOARD='https://sv-qa-scoreboard.onrender.com';</script>
+  <script src="report-widget.js"></script>
+</body>
+</html>
